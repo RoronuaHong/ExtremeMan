@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Extreme Man</title>
+    <meta name="referrer" content="never">
+    <meta name="description" content="SlimHong's blog">
+    <!--设置手机竖屏-->
+    <meta name="screen-orientation" content="portrait"/>
+    <!--设置icon图标-->
+    <link rel="shortcut icon" href="images/slimlogo.png">
+    <!--禁止电话和邮箱可点击-->
+    <meta name="format-detection" content="telephone=no, email=no">
+    <!--设置全屏-->
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <!--去掉iPhone的用户栏和地址栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!--适应设备屏幕-->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=1" name="viewport">
+    <!--引入FastClick-->
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <script>
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function () {
+                FastClick.attach(document.body);
+            }, false);
+        }
+        if (!window.Promise) {
+            document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
+        }
+    </script>
+</head>
+<body>
+<div id="root"></div>
+</body>
+</html>
