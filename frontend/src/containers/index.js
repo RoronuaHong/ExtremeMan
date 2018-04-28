@@ -26,23 +26,25 @@ class App extends Component {
         //         console.log(data);
         //     });
         
-        // fetch("http://192.168.0.169:3000/abc", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json;charset=utf-8"
-        //     },
-        //     body: JSON.stringify({
-        //         id: 1,
-        //         tel: 18606977713
-        //     })
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         // this.setState({
-        //         //     postData: data.abc
-        //         // });
-        //     });
+        fetch("http://192.168.0.169:3000/abc", {
+            method: "POST",
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: 1,
+                tel: 18606977713
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // this.setState({
+                //     postData: data.abc
+                // });
+            });
     }
 
     render() {

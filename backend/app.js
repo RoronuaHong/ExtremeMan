@@ -1,12 +1,16 @@
 const express = require("express");
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use( bodyParser.urlencoded({ extended: true }) ); // to support URL-encoded bodies
 
 app.all("*", (req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Header", "X-Requested-With");
-    res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-    res.setHeader("X-Powered-By", "3.2.1");
-    res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Header", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+    res.header("X-Powered-By", "3.2.1");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
 
     next();
 });
@@ -40,7 +44,12 @@ GETMethod("/aa", {
 });
 
 app.post("/abc", (req, res) => {
-    console.log(req.query);
+    const params = req.body;
+
+    res.json({
+        id: 1,
+        tel: 18606977713
+    });
 });
 
 app.put('/user', function (req, res) {

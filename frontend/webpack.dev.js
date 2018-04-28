@@ -14,6 +14,7 @@ module.exports = merge(common, {
         inline: true,   //实时刷新
         hot: true,
         compress: true,
+        host: "0.0.0.0",
         historyApiFallback: {
             index: '/pa/index.html'
         },
