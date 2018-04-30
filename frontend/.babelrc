@@ -1,9 +1,22 @@
 {
     "presets": [
-        ["env", { "modules": false }],
+        [
+            "env",
+            {
+                "modules": false
+            }
+        ],
         "react"
     ],
     "plugins": [
-        "react-hot-loader/babel"
+        "react-hot-loader/babel",
+        [
+            "import",
+            {
+                "libraryName": "antd-mobile",
+                "style": "css"
+            }
+        ],
+        "transform-decorators-legacy"
     ]
 }

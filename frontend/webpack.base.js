@@ -2,8 +2,10 @@ const webpack = require("webpack");
 const path = require("path");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const theme = require('./package.json').theme;
 
 const distPath = path.resolve(__dirname, "./dist");
+const antdPath = path.join(__dirname, "/node_modules/antd-mobile");
 const template = "./src/index.html";
 
 const config = {
@@ -15,7 +17,17 @@ const config = {
         filename: "[name].[hash].js"
     },
     resolve: {
-        extensions: [".js", ".css", ".scss", ".png", ".jpg", ".jpeg", ".gif"]
+        extensions: [
+            ".js", 
+            ".css", 
+            ".scss", 
+            ".png", 
+            ".jpg", 
+            ".jpeg", 
+            ".gif",
+            ".web.js",
+            ".json"
+        ]
     },
     module: {
         rules: [
@@ -25,12 +37,17 @@ const config = {
                 use: "babel-loader"
             },
             {
-                test: /\.(css|scss)$/,
-                exclude: /node_modules/,
+                test: /\.(css|scss|less)$/,
                 use: [
                     "style-loader",
                     "css-loader",
                     "sass-loader",
+                    {
+                        loader: "less-loader",
+                        options: {
+                            modifyVars: theme
+                        }
+                    },
                     {
                         loader: "postcss-loader",
                         options: {

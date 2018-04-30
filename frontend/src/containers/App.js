@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { Flex, WhiteSpace, Button } from 'antd-mobile';
+
 import "whatwg-fetch";
+import "../styles/scss/common/reset.css";
 
 class App extends Component {
     constructor(props) {
@@ -12,21 +15,15 @@ class App extends Component {
     }
 
     componentDidMount() {
-        fetch("http://192.168.0.169:3000/aa")
+        fetch("http://localhost:3000/aa")
             .then(response => response.json())
             .then(data => {
                 this.setState({
                     initialState: data.abc
                 });
             });
-
-        // fetch("http://192.168.0.169:3000")
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data);
-        //     });
         
-        fetch("http://192.168.0.169:3000/abc", {
+        fetch("http://localhost:3000/abc", {
             method: "POST",
             mode: 'cors',
             headers: {
@@ -48,11 +45,24 @@ class App extends Component {
     }
 
     render() {
+        const { Item } = Flex;
+
         return(
-            <React.Fragment>
-                <div>{ this.state.initialState }</div>
-                <div>{ this.state.postData }</div>
-            </React.Fragment>
+            <div className="flex-container">
+                <Flex>
+                    <Item>Block</Item>
+                    <Item>
+                        <div>{ this.state.initialState }</div>
+                        <div>{ this.state.postData }</div>
+                    </Item>
+                    <Item>
+                        <Button type="primary">1111</Button>
+                    </Item>
+                    <Item>
+                        123
+                    </Item>
+                </Flex>
+            </div>
         )
     }
 }
