@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { Flex, WhiteSpace, Button } from 'antd-mobile';
+import { Flex } from 'antd-mobile';
+import Index from "./Index";
 
 import "whatwg-fetch";
-import "../styles/scss/common/reset.css";
+import "../styles/scss/common/reset";
+// import "lib-flexible";
 
 class App extends Component {
     constructor(props) {
@@ -22,26 +24,6 @@ class App extends Component {
                     initialState: data.abc
                 });
             });
-        
-        fetch("http://localhost:3000/abc", {
-            method: "POST",
-            mode: 'cors',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                id: 1,
-                tel: 18606977713
-            })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // this.setState({
-                //     postData: data.abc
-                // });
-            });
     }
 
     render() {
@@ -50,17 +32,7 @@ class App extends Component {
         return(
             <div className="flex-container">
                 <Flex>
-                    <Item>Block</Item>
-                    <Item>
-                        <div>{ this.state.initialState }</div>
-                        <div>{ this.state.postData }</div>
-                    </Item>
-                    <Item>
-                        <Button type="primary">1111</Button>
-                    </Item>
-                    <Item>
-                        123
-                    </Item>
+                    <Index />
                 </Flex>
             </div>
         )

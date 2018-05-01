@@ -34,13 +34,16 @@
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
+    "lib-flexible": "^0.3.2",
     "node-sass": "^4.8.3",
     "postcss-loader": "^2.1.4",
     "react-hot-loader": "^4.0.1",
     "react-router-dom": "^4.2.2",
     "react-router-native": "^4.2.0",
+    "react-swipe": "^5.1.1",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
+    "swipe-js-iso": "^2.0.4",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
     "webpack": "^4.6.0",
@@ -55,5 +58,9 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "whatwg-fetch": "^2.0.4"
+  },
+  "theme": {
+    "brand-primary": "#FCFBE9",
+    "color-text-base": "#333"
   }
 }

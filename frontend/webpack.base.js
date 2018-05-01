@@ -37,17 +37,11 @@ const config = {
                 use: "babel-loader"
             },
             {
-                test: /\.(css|scss|less)$/,
+                test: /\.(css|scss)$/,
                 use: [
                     "style-loader",
                     "css-loader",
                     "sass-loader",
-                    {
-                        loader: "less-loader",
-                        options: {
-                            modifyVars: theme
-                        }
-                    },
                     {
                         loader: "postcss-loader",
                         options: {
@@ -72,7 +66,7 @@ const config = {
                             ]
                         }
                     },
-                    {
+                    /* {
                         loader: 'webpack-px-to-rem',
                         // 这个配置是可选的
                         query: {
@@ -84,11 +78,25 @@ const config = {
                             // 转换后的rem值保留的小数点后位数 默认为3 
                             floatWidth: 3
                         }
-                    }
+                    } */
                 ]
             },
             {
-                test: /\.(png|jpg|jpeg|gif|ico)$/i,
+                test: /\.less$/,
+                include: /node_modules/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            modifyVars: theme
+                        }
+                    }
+                ],
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|ico|svg|bmp)$/i,
                 use: [
                     {
                         loader: "url-loader",
@@ -134,6 +142,7 @@ const config = {
         new HtmlWebpackPlugin({
             template: template,
             filename: 'index.html',
+            favicon: "./src/styles/images/slimlogo.png", 
             hash: true,
             title: "React Component"
         })
