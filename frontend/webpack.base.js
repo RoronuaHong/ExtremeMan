@@ -14,7 +14,7 @@ const config = {
     },
     output: {
         path: distPath,
-        filename: "[name].[hash].js"
+        filename: "js/[name].[hash].js"
     },
     resolve: {
         extensions: [

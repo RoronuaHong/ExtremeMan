@@ -23,7 +23,7 @@ module.exports = merge(common, {
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),       //分配ID, 优先考虑使用最多的模块
-        new webpack.optimize.DedupePlugin(),                //删除类似的重复代码
+        // new webpack.optimize.DedupePlugin(),                //删除类似的重复代码
         new webpack.optimize.AggressiveMergingPlugin(),     //合并块
     ]
 });
