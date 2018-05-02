@@ -13,6 +13,7 @@ module.exports = merge(common, {
         port: "7713",
         inline: true,   //实时刷新
         hot: true,
+        open: true,
         compress: true,
         host: "0.0.0.0",
         historyApiFallback: {

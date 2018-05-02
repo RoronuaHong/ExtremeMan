@@ -17,6 +17,15 @@
                 "style": true
             }
         ],
-        "transform-decorators-legacy"
+        "transform-decorators-legacy",
+        [
+            "transform-class-properties",
+            {
+                "spec": true
+            }
+        ],
+        [
+            "transform-object-rest-spread"
+        ]
     ]]
 }
