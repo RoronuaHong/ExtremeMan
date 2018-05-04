@@ -1,14 +1,10 @@
 {
     "presets": [
-        [
-            "env",
-            {
-                "modules": false
-            }
-        ],
-        "react"
+        "react",
+        "es2015",
+        "stage-1"
     ],
-    "plugins": [[
+    "plugins": [
         "react-hot-loader/babel",
         [
             "import",
@@ -17,7 +13,18 @@
                 "style": true
             }
         ],
+        "add-module-exports",
+        "transform-es3-member-expression-literals",
+        "transform-es3-property-literals",
         "transform-decorators-legacy",
+        [
+            "transform-runtime",
+            {
+                "helpers": false,
+                "polyfill": true,
+                "regenerator": true
+            }
+        ],
         [
             "transform-class-properties",
             {
@@ -26,6 +33,12 @@
         ],
         [
             "transform-object-rest-spread"
+        ],
+        [
+            "transform-es2015-classes",
+            {
+                "loose": true
+            }
         ]
-    ]]
+    ]
 }
