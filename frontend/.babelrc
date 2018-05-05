@@ -1,22 +1,9 @@
 {
     "presets": [
-        "react",
-        "es2015",
-        "stage-1"
+        "env",
+        "react"
     ],
     "plugins": [
-        "react-hot-loader/babel",
-        [
-            "import",
-            {
-                "libraryName": "antd-mobile",
-                "style": true
-            }
-        ],
-        "add-module-exports",
-        "transform-es3-member-expression-literals",
-        "transform-es3-property-literals",
-        "transform-decorators-legacy",
         [
             "transform-runtime",
             {
@@ -26,11 +13,13 @@
             }
         ],
         [
-            "transform-class-properties",
+            "import",
             {
-                "spec": true
+                "libraryName": "antd-mobile",
+                "style": true
             }
         ],
+        "transform-decorators-legacy",
         [
             "transform-object-rest-spread"
         ],
@@ -39,6 +28,7 @@
             {
                 "loose": true
             }
-        ]
+        ],
+        "transform-proto-to-assign"
     ]
 }

@@ -2,6 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const es3ifyPlugin = require('es3ify-webpack-plugin');
 const theme = require('./package.json').theme;
 
 const distPath = path.resolve(__dirname, "./dist");
@@ -135,6 +136,7 @@ const config = {
         }
     },
     plugins: [
+        new es3ifyPlugin(),
         new ExtractTextPlugin({
             filename: 'main.[hash].css',
             allChunks: true
